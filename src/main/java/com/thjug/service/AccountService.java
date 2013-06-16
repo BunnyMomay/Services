@@ -13,6 +13,7 @@
 package com.thjug.service;
 
 import com.thjug.entity.Account;
+import javax.persistence.NoResultException;
 
 /**
  *
@@ -24,8 +25,12 @@ public class AccountService extends AbstractService<Account> {
 		super(Account.class);
 	}
 
-	public Account findByUsername(final String username) throws Exception {
-		return findOne(Account.findByUsername, username);
+	public Account findByUsername(final String username) {
+		try {
+			return findOne(Account.FIND_BY_USERNAME, username);
+		} catch (final NoResultException e) {
+			return null;
+		}
 	}
 
 }

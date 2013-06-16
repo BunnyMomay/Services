@@ -33,7 +33,7 @@ public final class Signin {
 	private SigninFacade facade;
 
 	@POST
-	public final Response getJson(
+	public Response getJson(
 			@FormParam("username") final String username,
 			@FormParam("password") final String password) {
 
@@ -45,7 +45,7 @@ public final class Signin {
 			LOG.error(e.getMessage(), e);
 			result = e.getMessage();
 		}
-		return Response.status(200).entity(result).build();
+		return Response.status(Response.Status.OK).entity(result).build();
 	}
 
 }

@@ -24,7 +24,7 @@ import com.google.inject.Provider;
  */
 public abstract class AbstractService<T> {
 
-	private transient final Class<T> entityClass;
+	private final transient Class<T> entityClass;
 
 	@Inject
 	private transient Provider<EntityManager> provider;

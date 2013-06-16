@@ -24,8 +24,8 @@ import javax.ws.rs.core.Response;
 public final class Status {
 
 	@GET
-	public final Response getJson() {
-		return Response.status(200).entity("live!").build();
+	public Response getJson() {
+		return Response.status(Response.Status.OK).entity("live!").build();
 	}
 
 }

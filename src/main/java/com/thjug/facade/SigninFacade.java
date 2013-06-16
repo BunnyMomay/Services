@@ -22,6 +22,5 @@ import com.thjug.facade.impl.SigninFacadeImpl;
 @ImplementedBy(value = SigninFacadeImpl.class)
 public interface SigninFacade {
 
-	public boolean authen(final String username, final String password)
-			throws Exception;
+	boolean authen(final String username, final String password);
 }

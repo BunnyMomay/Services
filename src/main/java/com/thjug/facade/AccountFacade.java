@@ -21,9 +21,9 @@ import com.thjug.entity.Account;
 //@ImplementedBy(value = AccountFacadeImpl.class)
 public interface AccountFacade {
 
-	public Account create(final Account account) throws Exception;
+	Account create(final Account account);
 
-	public Account update(final Account account) throws Exception;
+	Account update(final Account account);
 
-	public void remove(final Integer accountid) throws Exception;
+	void remove(final Integer accountid);
 }

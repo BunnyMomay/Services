@@ -22,7 +22,7 @@ import org.testng.annotations.Test;
 public class SigninFacadeImplNGTest extends AbstractFacadeNGTest {
 
 	@Test
-	public void testAuthen() throws Exception {
+	public void testAuthenCasePass() throws Exception {
 		String username = "admin";
 		String password = "password";
 		SigninFacadeImpl instance = injector.getInstance(SigninFacadeImpl.class);
@@ -31,4 +31,27 @@ public class SigninFacadeImplNGTest extends AbstractFacadeNGTest {
 		boolean result = instance.authen(username, password);
 		assertEquals(result, expResult);
 	}
+
+	@Test
+	public void testAuthenCaseWrongPassword() throws Exception {
+		String username = "admin";
+		String password = "pass";
+		SigninFacadeImpl instance = injector.getInstance(SigninFacadeImpl.class);
+
+		boolean expResult = false;
+		boolean result = instance.authen(username, password);
+		assertEquals(result, expResult);
+	}
+
+	@Test
+	public void testAuthenCaseWrongUsername() throws Exception {
+		String username = "root";
+		String password = "password";
+		SigninFacadeImpl instance = injector.getInstance(SigninFacadeImpl.class);
+
+		boolean expResult = false;
+		boolean result = instance.authen(username, password);
+		assertEquals(result, expResult);
+	}
+
 }

@@ -37,13 +37,13 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "ACCOUNT")
 @NamedQueries({
-	@NamedQuery(name = Account.countAll, query = "SELECT COUNT(a) FROM Account a"),
-	@NamedQuery(name = Account.findByUsername, query = "SELECT a FROM Account a WHERE UPPER(a.username) = ?1"),})
+	@NamedQuery(name = Account.COUNT_ALL, query = "SELECT COUNT(a) FROM Account a"),
+	@NamedQuery(name = Account.FIND_BY_USERNAME, query = "SELECT a FROM Account a WHERE UPPER(a.username) = ?1"),})
 public class Account implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	public static final String countAll = "Account.countAll";
-	public static final String findByUsername = "Account.findByUsername";
+	public static final String COUNT_ALL = "Account.countAll";
+	public static final String FIND_BY_USERNAME = "Account.findByUsername";
 
 	@Id
 	@Basic(optional = false)

@@ -27,15 +27,18 @@ import org.apache.shiro.crypto.hash.Sha256Hash;
 public class SigninFacadeImpl implements SigninFacade {
 
 	@Inject
-	AccountService accountService;
+	private AccountService accountService;
 	@Inject
-	HistoryService historyService;
+	private HistoryService historyService;
 
 	@Override
 	@Transactional
-	public boolean authen(final String username, final String password)
-			throws Exception {
+	public boolean authen(final String username, final String password) {
 		final Account account = accountService.findByUsername(username.toUpperCase());
+		if (account == null) {
+			return false;
+		}
+
 		final String cyphertext = new Sha256Hash(password).toHex();
 		final boolean result = (cyphertext.equals(account.getPasswd())) ? true : false;
 
